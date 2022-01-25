@@ -25,7 +25,9 @@ p {
   margin-bottom: 0;
   padding: 0.5vw;
 }
-
+#erreur{
+  color: red;
+}
 img {
   padding-right: 1rem;
 }

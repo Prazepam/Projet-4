@@ -16,35 +16,34 @@ const closeBtn = document.getElementsByClassName('close');
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
+
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
 
 }
-
 // close modal form
 function closeModal() {
   modalbg.style.display = "none";
 }
+closeModal();
+
 let form = document.getElementById("inscription");
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   
-  let location = document.getElementById("location");
-  let conditions = document.getElementById("check-condition");
-  
-  
-  const numRegExp = /^[0-9]+$/;
   validFirst();
   validLast();
   validEmail();
   validBirthdate();
   validTournament();
   validCondition();
- 
+  
 
 });
+
+
 //Prénom//
  function validFirst(){
   const nameRegExp = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
@@ -94,13 +93,13 @@ form.addEventListener("submit", function (e) {
 
  //Tournois//
  function validTournament(){
-   let inputtournament = document.getElementsByClassName("checkbox-input"), i, count = 0;
+   let inputtournament = document.getElementsByClassName("checkbox-input");
    for (let i = 0; i < inputtournament.length; i++){
-    if (inputtournament.checked == true){
-     location.parentElement.setAttribute('data-error-visible', 'false');
+    if (inputtournament[i].checked === true){
+     checkbox-input.parentElement.setAttribute('data-error-visible', 'false');
     }
     else{
-     location.parentElement.setAttribute('data-error-visible', 'true');
+     checkbox-input.parentElement.setAttribute('data-error-visible', 'true');
     }
   }
  }

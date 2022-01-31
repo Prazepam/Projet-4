@@ -27,6 +27,8 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
+closeBtn.forEach((btn) => btn.addEventListener("click", closeModal))
+
 let form = document.getElementById("inscription");
 
 form.addEventListener("submit", function (e) {

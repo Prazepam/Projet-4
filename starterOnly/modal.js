@@ -26,7 +26,6 @@ function launchModal() {
 function closeModal() {
   modalbg.style.display = "none";
 }
-closeModal();
 
 let form = document.getElementById("inscription");
 
@@ -38,8 +37,6 @@ form.addEventListener("submit", function (e) {
   validEmail();
   validBirthdate();
   validTournament();
-  validCondition();
-  
 
 });
 
@@ -49,10 +46,12 @@ form.addEventListener("submit", function (e) {
   const nameRegExp = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
   let inputfirst = document.getElementById("first");
   if (nameRegExp.test(inputfirst.value)){
-    first.parentElement.setAttribute('data-error-visible', 'false');
+    first.parentElement.setAttribute('data-error-visible', 'false')
+    return true;
   }
   else{
     first.parentElement.setAttribute('data-error-visible', 'true');
+    return false;
   }
  }
 
@@ -62,9 +61,11 @@ form.addEventListener("submit", function (e) {
   let inputlast = document.getElementById("last");
   if (nameRegExp.test(inputlast.value)){
     last.parentElement.setAttribute('data-error-visible', 'false')
+    return true;
   }
   else{
-    last.parentElement.setAttribute('data-error-visible', 'true')
+    last.parentElement.setAttribute('data-error-visible', 'true');
+    return false;
   }
  };
 
@@ -74,9 +75,11 @@ form.addEventListener("submit", function (e) {
   let inputemail = document.getElementById("email");
   if (emailRegExp.test(inputemail.value)){
     email.parentElement.setAttribute('data-error-visible', 'false')
+    return true;
   }
   else{
-    email.parentElement.setAttribute('data-error-visible', 'true')
+    email.parentElement.setAttribute('data-error-visible', 'true');
+    return false;
   }
  };
 
@@ -85,32 +88,37 @@ form.addEventListener("submit", function (e) {
   let inputbirthdate = document.getElementById("birthdate");
   if (inputbirthdate.value){
     birthdate.parentElement.setAttribute('data-error-visible', 'false');
-  }
+    return true; }
   else{
     birthdate.parentElement.setAttribute('data-error-visible', 'true');
+    return false;
   }
  }
 
  //Tournois//
  function validTournament(){
-   let inputtournament = document.getElementsByClassName("checkbox-input");
-   for (let i = 0; i < inputtournament.length; i++){
-    if (inputtournament[i].checked === true){
-     checkbox-input.parentElement.setAttribute('data-error-visible', 'false');
+  let checkbox = document.getElementsByClassName("check-box")
+  const Tournament = document.querySelector('input[name="location"]:checked');
+    if (Tournament.checked){
+      return true;
     }
     else{
-     checkbox-input.parentElement.setAttribute('data-error-visible', 'true');
+      checkbox.parentElement.setAttribute('data-error-visible', 'true');
+      return false;
     }
-  }
- }
+}
 
+
+ 
  //Condition//
  function checkMe() {
    let inputCondition =document.getElementById("checkbox1");
    if (inputCondition.checked == true){
-     checkbox1.parentElement.setAttribute('data-error-visible', 'false');
+     checkbox1.parentElement.setAttribute('data-error-visible', 'false')
+     return true;
    }
    else{
      checkbox1.parentElement.setAttribute('data-error-visible', 'true');
+     return false;
    }
  };

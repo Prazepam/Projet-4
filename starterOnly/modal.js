@@ -27,7 +27,6 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
-closeBtn.forEach((btn) => btn.addEventListener("click", closeModal))
 
 let form = document.getElementById("inscription");
 
@@ -100,8 +99,9 @@ form.addEventListener("submit", function (e) {
  //Tournois//
  function validTournament(){
   let checkbox = document.getElementsByClassName("check-box")
-  const Tournament = document.querySelector('input[name="location"]:checked');
+  const Tournament = document.querySelector('input[type="radio"]:checked');
     if (Tournament.checked){
+      console.log ('ok');
       return true;
     }
     else{
@@ -124,3 +124,15 @@ form.addEventListener("submit", function (e) {
      return false;
    }
  };
+
+  let modalForm = document.getElementById ("modalForm");
+  let modalConfirm = document.getElementById ("modalConfirm");
+  if ( validFirst(true) && validLast(true) && validEmail(true) && validBirthdate(true) && validTournament(true) ){
+      modalForm.style.display = "none";
+      modalConfirm.style.display = "block";
+    }
+  else {
+      modalForm.style.display = "block";
+      modalConfirm.style.display = "none";
+    };
+  

@@ -55,9 +55,10 @@
       <div class="bground">
         <div class="content">
           <span class="close"></span>
-          <div class="modal-body">
+          <div class="modal-body" id="modalForm">
             <!--Formulaire-->
-            <form id="inscription" name="reserve" action="index.html" method="get">
+            <form id="inscription" name="reserve" action="index.html" method="get" class="formModal">
+              
               <!--Prénom-->
               <div class="formData" data-error="Vous devez entrer 2 caractères ou plus pour le champ du prénom." data-error-visible="false">
                 <label for="first">Prénom</label><br>
@@ -70,6 +71,7 @@
                   placeholder="Prénom"
                 /><br>
               </div>
+
               <!--Noms-->
               <div class="formData" data-error="Veuillez entrer 2 caractères ou plus pour le champ du nom." data-error-visible="false">
                 <label for="last">Nom</label><br>
@@ -82,6 +84,7 @@
                   placeholder="Noms"
                 /><br>
               </div>
+
               <!--Adresse mail-->
               <div class="formData" data-error="Vous devez entrer une adresse mail valide." data-error-visible="false">
                 <label for="email">E-mail</label><br>
@@ -93,6 +96,7 @@
                   required
                 /><br>
               </div>
+
               <!--Date de naissance-->
               <div class="formData" data-error="Vous devez entrer votre date de naissance." data-error-visible="false">
                 <label for="birthdate">Date de naissance</label><br>
@@ -103,6 +107,7 @@
                   name="birthdate"
                 /><br>
               </div>
+
               <!--Tournois-->
               <div class="formData" data-error="Vous devez entrer des chiffres." data-error-visible="false">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
@@ -191,8 +196,8 @@
                   <span class="checkbox-icon"></span>
                   Portland
                 </label>
-
               </div>
+
               <!--Conditions-->
               <div class="formData" data-error="Vous devez vérifier que vous acceptez les termes et conditions." data-error-visible="false">
                 <input
@@ -227,6 +232,17 @@
                 value="C'est parti"
               />
             </form>
+            <!--Confirmation-->
+            <div class="formConfirm" id="modalConfirm">
+              <p class="confrimText">Merci pour <br>
+              votre participation</p>
+              <input
+                class="btn-close"
+                type="button"
+                class="button"
+                value="Fermer"
+              />
+            </div>
           </div>
         </div>
       </div>

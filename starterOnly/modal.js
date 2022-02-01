@@ -33,12 +33,12 @@ let form = document.getElementById("inscription");
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   
-  validFirst();
-  validLast();
-  validEmail();
-  validBirthdate();
-  validTournament();
-
+  let modalForm = document.getElementById ("modalForm");
+  let modalConfirm = document.getElementById ("modalConfirm");
+  if ( validFirst() == true && validLast() == true && validEmail() == true && validBirthdate() == true && validTournament() == true ){
+      modalForm.style.display = "none";
+      modalConfirm.style.display = "block";
+    }
 });
 
 
@@ -98,14 +98,14 @@ form.addEventListener("submit", function (e) {
 
  //Tournois//
  function validTournament(){
-  let checkbox = document.getElementsByClassName("check-box")
+  let checkbox = document.getElementById("formTournament")
   const Tournament = document.querySelector('input[type="radio"]:checked');
-    if (Tournament.checked){
-      console.log ('ok');
+  console.log (Tournament);
+    if (Tournament){
       return true;
     }
     else{
-      checkbox.parentElement.setAttribute('data-error-visible', 'true');
+      checkbox.setAttribute('data-error-visible', 'true');
       return false;
     }
 }
@@ -125,14 +125,4 @@ form.addEventListener("submit", function (e) {
    }
  };
 
-  let modalForm = document.getElementById ("modalForm");
-  let modalConfirm = document.getElementById ("modalConfirm");
-  if ( validFirst(true) && validLast(true) && validEmail(true) && validBirthdate(true) && validTournament(true) ){
-      modalForm.style.display = "none";
-      modalConfirm.style.display = "block";
-    }
-  else {
-      modalForm.style.display = "block";
-      modalConfirm.style.display = "none";
-    };
   

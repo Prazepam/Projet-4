@@ -32,15 +32,28 @@ let form = document.getElementById("inscription");
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
-  
+  let checkbox = document.getElementById("formTournament")
   let modalForm = document.getElementById ("modalForm");
   let modalConfirm = document.getElementById ("modalConfirm");
   if ( validFirst() == true && validLast() == true && validEmail() == true && validBirthdate() == true && validTournament() == true ){
       modalForm.style.display = "none";
       modalConfirm.style.display = "block";
     }
+  else{
+    first.parentElement.setAttribute('data-error-visible', 'true');
+    last.parentElement.setAttribute('data-error-visible', 'true');
+    email.parentElement.setAttribute('data-error-visible', 'true');
+    birthdate.parentElement.setAttribute('data-error-visible', 'true');
+    birthdate.parentElement.setAttribute('data-error-visible', 'true');
+    checkbox.setAttribute('data-error-visible', 'true');
+    checkbox1.parentElement.setAttribute('data-error-visible', 'true');
+    return false;
+  }
 });
 
+function validform (){
+
+}
 
 //Prénom//
  function validFirst(){
@@ -49,10 +62,6 @@ form.addEventListener("submit", function (e) {
   if (nameRegExp.test(inputfirst.value)){
     first.parentElement.setAttribute('data-error-visible', 'false')
     return true;
-  }
-  else{
-    first.parentElement.setAttribute('data-error-visible', 'true');
-    return false;
   }
  }
 
@@ -64,10 +73,6 @@ form.addEventListener("submit", function (e) {
     last.parentElement.setAttribute('data-error-visible', 'false')
     return true;
   }
-  else{
-    last.parentElement.setAttribute('data-error-visible', 'true');
-    return false;
-  }
  };
 
  //Email//
@@ -78,10 +83,6 @@ form.addEventListener("submit", function (e) {
     email.parentElement.setAttribute('data-error-visible', 'false')
     return true;
   }
-  else{
-    email.parentElement.setAttribute('data-error-visible', 'true');
-    return false;
-  }
  };
 
  //Date de naissance//
@@ -90,23 +91,14 @@ form.addEventListener("submit", function (e) {
   if (inputbirthdate.value){
     birthdate.parentElement.setAttribute('data-error-visible', 'false');
     return true; }
-  else{
-    birthdate.parentElement.setAttribute('data-error-visible', 'true');
-    return false;
-  }
  }
 
  //Tournois//
  function validTournament(){
-  let checkbox = document.getElementById("formTournament")
   const Tournament = document.querySelector('input[type="radio"]:checked');
   console.log (Tournament);
     if (Tournament){
       return true;
-    }
-    else{
-      checkbox.setAttribute('data-error-visible', 'true');
-      return false;
     }
 }
 
@@ -118,10 +110,6 @@ form.addEventListener("submit", function (e) {
    if (inputCondition.checked == true){
      checkbox1.parentElement.setAttribute('data-error-visible', 'false')
      return true;
-   }
-   else{
-     checkbox1.parentElement.setAttribute('data-error-visible', 'true');
-     return false;
    }
  };
 

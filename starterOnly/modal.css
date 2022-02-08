@@ -232,6 +232,7 @@ input {
   color: #fff;
   cursor: pointer;
   border: 0;
+  display: flex;
 }
 
 .text-control {

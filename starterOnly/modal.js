@@ -11,7 +11,7 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-const closeBtn = document.getElementsByClassName('close');
+const closeBtn = document.getElementsByClassName("btn-close");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -24,29 +24,23 @@ function launchModal() {
 }
 // close modal form
 function closeModal() {
-  modalbg.style.display = "none";
+  modalbg.style.display ="none";
 }
+const closeConfirmationBtn = document.getElementById("closeConfirm")
+closeConfirmationBtn.addEventListener("click", function() {modalbg.style.display ="none";})
 
 
 let form = document.getElementById("inscription");
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
-  let checkbox = document.getElementById("formTournament")
   let modalForm = document.getElementById ("modalForm");
   let modalConfirm = document.getElementById ("modalConfirm");
-  if ( validFirst() == true && validLast() == true && validEmail() == true && validBirthdate() == true && validTournament() == true ){
+  if ( validFirst() == true && validLast() == true && validEmail() == true && validBirthdate() == true && validNumberTournament() == true && validTournament() == true && checkMe()== true){
       modalForm.style.display = "none";
       modalConfirm.style.display = "block";
     }
   else{
-    first.parentElement.setAttribute('data-error-visible', 'true');
-    last.parentElement.setAttribute('data-error-visible', 'true');
-    email.parentElement.setAttribute('data-error-visible', 'true');
-    birthdate.parentElement.setAttribute('data-error-visible', 'true');
-    birthdate.parentElement.setAttribute('data-error-visible', 'true');
-    checkbox.setAttribute('data-error-visible', 'true');
-    checkbox1.parentElement.setAttribute('data-error-visible', 'true');
     return false;
   }
 });
@@ -63,6 +57,9 @@ function validform (){
     first.parentElement.setAttribute('data-error-visible', 'false')
     return true;
   }
+  else {
+    first.parentElement.setAttribute('data-error-visible', 'true');
+  }
  }
 
 //Nom//
@@ -72,6 +69,9 @@ function validform (){
   if (nameRegExp.test(inputlast.value)){
     last.parentElement.setAttribute('data-error-visible', 'false')
     return true;
+  }
+  else {
+    last.parentElement.setAttribute('data-error-visible', 'true');
   }
  };
 
@@ -83,6 +83,9 @@ function validform (){
     email.parentElement.setAttribute('data-error-visible', 'false')
     return true;
   }
+  else {
+    email.parentElement.setAttribute('data-error-visible', 'true');
+  }
  };
 
  //Date de naissance//
@@ -90,20 +93,35 @@ function validform (){
   let inputbirthdate = document.getElementById("birthdate");
   if (inputbirthdate.value){
     birthdate.parentElement.setAttribute('data-error-visible', 'false');
-    return true; }
- }
-
- //Tournois//
+    return true; 
+  }
+  else {
+    birthdate.parentElement.setAttribute('data-error-visible', 'true');
+  }
+}
+//Tournois nombre//
+function validNumberTournament(){
+  let inputNumberTournament = document.getElementById("quantity");
+  if (inputNumberTournament.value){
+    quantity.parentElement.setAttribute('data-error-visible', 'false');
+    return true;
+  }
+  else{
+    quantity.parentElement.setAttribute('data-error-visible', 'true');
+  }
+}
+ //Tournois localisation//
  function validTournament(){
+  let checkbox = document.getElementById("formTournament")
   const Tournament = document.querySelector('input[type="radio"]:checked');
-  console.log (Tournament);
     if (Tournament){
+      checkbox.setAttribute('data-error-visible', 'false');
       return true;
     }
-}
-
-
- 
+    else {
+      checkbox.setAttribute('data-error-visible', 'true');
+    }
+} 
  //Condition//
  function checkMe() {
    let inputCondition =document.getElementById("checkbox1");
@@ -111,6 +129,9 @@ function validform (){
      checkbox1.parentElement.setAttribute('data-error-visible', 'false')
      return true;
    }
+   else {
+    checkbox1.parentElement.setAttribute('data-error-visible', 'true');
+  }
  };
 
   

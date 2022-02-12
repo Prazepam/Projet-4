@@ -14,7 +14,7 @@
   <body>
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
-      <img alt="logo" src="Logo.png" width="auto" height="auto" class="logo" />
+      <img alt="logo" src="Logo.png" class="logo" />
     </div>
     <div class="main-navbar">
       
@@ -26,7 +26,6 @@
       <a href="javascript:void(0);" class="icon" onclick="editNav()">
         <i class="fa fa-bars"></i>
       </a>
-    </div>
     </div>
   </div>
     <main>
@@ -213,7 +212,7 @@
                   id="checkbox1"
                   onclick="checkMe()"
                 />
-                <label id="check-condition" class="checkbox2-label" for="checkbox1" required>
+                <label id="check-condition" class="checkbox2-label" for="checkbox1">
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
@@ -234,20 +233,18 @@
                 id="submit"
                 class="btn-submit"
                 type="submit"
-                class="button"
                 value="C'est parti"
               />
             </form>
           </div>
            <!--Confirmation-->
-          <div class="formConfirm" id="modalConfirm">
+          <div class="formConfirm formModal" id="modalConfirm">
             <p class="confrimText">Merci pour <br>
             votre participation</p>
             <input
               id="closeConfirm"
-              class="btn-close modal-btn close"
+              class="btn-close"
               type="button"
-              class="button"
               value="Fermer"
             />
           </div>

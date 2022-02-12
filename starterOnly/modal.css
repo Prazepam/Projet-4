@@ -31,7 +31,10 @@ p {
 img {
   padding-right: 1rem;
 }
-
+.logo{
+  height: auto;
+  width: auto;
+}
 .topnav {
   overflow: hidden;
   margin: 3.5%;

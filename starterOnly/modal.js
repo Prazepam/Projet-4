@@ -12,6 +12,7 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeBtn = document.querySelector(".close");
+const closeThanks = document.querySelector (".btn-close")
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -25,10 +26,11 @@ function launchModal() {
 // close modal form
 
 closeBtn.addEventListener("click", closeModal)
+closeThanks.addEventListener("click", closeModal)
 
 function closeModal() {
   modalbg.style.display ="none";
-  document.getElementById("inscription").reset();
+  document.querySelector(".formModal").reset();
 }
 const closeConfirmationBtn = document.getElementById("closeConfirm")
 closeConfirmationBtn.addEventListener("click", function() {modalbg.style.display ="none";})

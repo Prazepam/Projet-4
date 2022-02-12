@@ -11,7 +11,7 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-const closeBtn = document.getElementsByClassName("btn-close");
+const closeBtn = document.querySelector(".close");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -23,11 +23,18 @@ function launchModal() {
 
 }
 // close modal form
+
+closeBtn.addEventListener("click", closeModal)
+
 function closeModal() {
   modalbg.style.display ="none";
+  document.getElementById("inscription").reset();
 }
 const closeConfirmationBtn = document.getElementById("closeConfirm")
 closeConfirmationBtn.addEventListener("click", function() {modalbg.style.display ="none";})
+
+const closebtn = document.querySelector(".close")
+closebtn.addEventListener("click", function() {modalbg.style.display ="none";})
 
 
 let form = document.getElementById("inscription");

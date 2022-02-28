@@ -565,10 +565,14 @@ display: block;
   position: relative;
   z-index: 1;
 }
+h1{
+  color: blue;
+}
 .hero-headline {
   font-size: 6rem;
   font-weight: normal;
   white-space: nowrap;
+  color: red;
 }
 .hero-text {
   width: 146%;
